@@ -1,8 +1,13 @@
+package es.unican.is2.ImpuestoCirculacion;
+
 /**
  * Interfaz de negocio para gestionar contribuyentes
  */
 public interface IGestionContribuyentes {
 	
+	@SuppressWarnings("serial")
+	public static class OperacionNoValida extends RuntimeException {
+	}
 	/**
 	 * Añade un nuevo contribuyente
 	 * @param c Contribuyente que desea anhadir

@@ -1,7 +1,13 @@
+package es.unican.is2.ImpuestoCirculacion;
+
 /**
  * Interfaz de negocio para gestionar vehículos
  */
 public interface IGestionVehiculos {
+	
+	@SuppressWarnings("serial")
+	public static class OperacionNoValida extends RuntimeException {
+	}
 	
 	/**
 	 * Añade un nuevo vehiculo al contribuyente cuyo dni se pasa

@@ -1,3 +1,5 @@
+package es.unican.is2.ImpuestoCirculacion;
+
 /**
  * Clase principal que construye la aplicación de tres capas y lanza su ejecución
  */
