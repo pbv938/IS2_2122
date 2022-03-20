@@ -2,6 +2,7 @@ package es.unican.is2.ImpuestoCirculacion;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.chrono.ChronoLocalDate;
 
 @SuppressWarnings("serial")
 public class Turismo
@@ -11,6 +12,13 @@ public class Turismo
 	private double potencia;
 	
 	
+
+
+	public Turismo(String matricula, LocalDate fechaMatriculacion, int potencia) {
+		super(matricula,fechaMatriculacion);
+		this.potencia = potencia;
+		
+	}
 
 
 	/**
@@ -28,8 +36,28 @@ public class Turismo
      */
 	@Override
     public double precioImpuesto() {
-		// TODO
-    	return 0;
+		double precio = 0;
+    	if(potencia < 8 ) {
+    		precio = 25.24;
+    	}
+    	else if(potencia >= 8 && potencia <= 11.99) {
+    		precio = 68.16;
+    	}
+    	else if(potencia >= 12 && potencia <= 15.99 ) {
+    		precio =143.88;
+    	}
+    	else if(potencia >= 16 && potencia <= 19.99) {
+    		precio = 179.22;
+    	}
+    	else if(potencia >= 20) {
+    		precio = 224;
+    	}
+    	ChronoLocalDate fecha = LocalDate.ofYearDay(this.getFechaMatriculacion().getYear() + 25,this.getFechaMatriculacion().getDayOfYear() );
+    	if(this.getFechaMatriculacion().compareTo(fecha) > 0) {
+    		precio = 0;
+    	}
+    	
+    	return precio;
     }
     
 }

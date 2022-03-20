@@ -17,7 +17,7 @@ public class Contribuyente implements Serializable {
     	this.apellido1 = apellido1;
     	this.apellido2 = apellido2;
     	this.dni = dni;
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -26,8 +26,11 @@ public class Contribuyente implements Serializable {
      * @return Valor del impuesto a pagar
      */
     public double totalAPagar() {
-    	//TODO
-    	return 0;
+    	double precio = 0;
+    	for(Vehiculo v:getVehiculos()) {
+    		precio += v.precioImpuesto();
+    	}
+    	return precio;
     }
     
     /**
