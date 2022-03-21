@@ -12,9 +12,7 @@ public class Turismo
 	private double potencia;
 	
 	
-
-
-	public Turismo(String matricula, LocalDate fechaMatriculacion, int potencia) {
+	public Turismo(String matricula, LocalDate fechaMatriculacion, double potencia) {
 		super(matricula,fechaMatriculacion);
 		this.potencia = potencia;
 		
@@ -52,8 +50,8 @@ public class Turismo
     	else if(potencia >= 20) {
     		precio = 224;
     	}
-    	ChronoLocalDate fecha = LocalDate.ofYearDay(this.getFechaMatriculacion().getYear() + 25,this.getFechaMatriculacion().getDayOfYear() );
-    	if(this.getFechaMatriculacion().compareTo(fecha) > 0) {
+    	
+    	if(getFechaMatriculacion().isBefore(LocalDate.now().minusYears(25))) {
     		precio = 0;
     	}
     	

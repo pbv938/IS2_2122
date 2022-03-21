@@ -1,6 +1,7 @@
 package es.unican.is2.ImpuestoCirculacion;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -13,6 +14,7 @@ public class Contribuyente implements Serializable {
     private String dni;
     
     public Contribuyente(String nombre, String apellido1, String apellido2, String dni) {
+    	vehiculos = new LinkedList<Vehiculo>();
     	this.nombre = nombre;
     	this.apellido1 = apellido1;
     	this.apellido2 = apellido2;
@@ -40,6 +42,7 @@ public class Contribuyente implements Serializable {
 	public List<Vehiculo> getVehiculos() {
 		return vehiculos;
 	}
+	
 	
 	/**
 	 * Retorna el valor del atributo nombre

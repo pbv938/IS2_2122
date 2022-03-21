@@ -1,4 +1,4 @@
-package es.unican.is2.ImpuestoCirculacion;
+package es.unican.is2.Rellena;
 
 
 import java.io.FileInputStream;
@@ -8,6 +8,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.List;
+
+import es.unican.is2.ImpuestoCirculacion.Ayuntamiento;
+import es.unican.is2.ImpuestoCirculacion.Contribuyente;
+import es.unican.is2.ImpuestoCirculacion.Furgoneta;
+import es.unican.is2.ImpuestoCirculacion.Motocicleta;
+import es.unican.is2.ImpuestoCirculacion.Turismo;
+import es.unican.is2.ImpuestoCirculacion.Vehiculo;
 
 public class RellenaAyuntamiento {
 	
@@ -22,6 +29,7 @@ public class RellenaAyuntamiento {
 		Furgoneta f1 = new Furgoneta("1111-BBB", LocalDate.now().minusMonths(15), 50);
 		c1.getVehiculos().add(t1);
 		c1.getVehiculos().add(f1);
+		
 		
 		// Segundo contribuyente
 	    Contribuyente c2 = new Contribuyente("Ana", "Pérez", "López", "22222222B");

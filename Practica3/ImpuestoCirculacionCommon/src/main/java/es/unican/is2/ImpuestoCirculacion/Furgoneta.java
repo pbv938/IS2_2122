@@ -11,8 +11,9 @@ public class Furgoneta
     private double potencia;
     private boolean comercial;
     
-   public Furgoneta(String matricula, LocalDate fechaMatriculacion, int potencia) {
+   public Furgoneta(String matricula, LocalDate fechaMatriculacion, double potencia) {
 		super(matricula,fechaMatriculacion,potencia);
+		this.potencia = potencia;
 	}
 
 /**
@@ -55,8 +56,7 @@ public class Furgoneta
     	if(comercial == true) {
     		precio = precio * 0.8;
     	}
-    	ChronoLocalDate fecha = LocalDate.ofYearDay(this.getFechaMatriculacion().getYear() + 25,this.getFechaMatriculacion().getDayOfYear() );
-    	if(this.getFechaMatriculacion().compareTo(fecha) > 0) {
+    	if(getFechaMatriculacion().isBefore(LocalDate.now().minusYears(25))) {
     		precio = 0;
     	}
 		return precio;
