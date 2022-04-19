@@ -1,26 +1,15 @@
-package es.unican.is2.Test;
-
-import org.junit.After;
-
-import org.junit.Before;
-
-import java.time.LocalDate;
+package is.unican.is2.Test;
 
 import org.fest.swing.fixture.FrameFixture;
+import org.junit.After;
+import org.junit.Before;
 
-import es.unican.is2.ImpuestoCirculacion.Contribuyente;
 import es.unican.is2.ImpuestoCirculacion.ContribuyentesDAO;
 import es.unican.is2.ImpuestoCirculacion.GestionImpuestoCirculacion;
-import es.unican.is2.ImpuestoCirculacion.IGestionContribuyentes;
-import es.unican.is2.ImpuestoCirculacion.IGestionVehiculos;
-import es.unican.is2.ImpuestoCirculacion.IInfoImpuestoCirculacion;
-import es.unican.is2.ImpuestoCirculacion.Turismo;
-import es.unican.is2.ImpuestoCirculacion.Vehiculo;
 import es.unican.is2.ImpuestoCirculacion.VehiculosDAO;
 import es.unican.is2.ImpuestoCirculacion.VistaFuncionario;
 
-public class Test {
-	
+public class Tester {
 	private FrameFixture demo;
 	
 	
@@ -54,19 +43,26 @@ public class Test {
 		demo.list("ListaMatriculas").requireItemCount(2);
 		demo.textBox("txtTotalContribuyente").requireText("448.0");
 		
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		
 		demo.textBox("txtDniContribuyente").setText("22222222B");
 		demo.button("btnBuscar").click();
 		demo.textBox("txtNombreContribuyente").requireText("Ana Pérez López");
 		demo.list("ListaMatriculas").requireItemCount(2);
 		demo.textBox("txtTotalContribuyente").requireText("8.84");
+		
+		
+		demo.textBox("txtDniContribuyente").setText("33333333C");
+		demo.button("btnBuscar").click();
+		demo.textBox("txtNombreContribuyente").requireText("Luis Toca Pérez");
+		demo.list("ListaMatriculas").requireItemCount(2);
+		demo.textBox("txtTotalContribuyente").requireText("249.24");
+		
+		
+		demo.textBox("txtDniContribuyente").setText("");
+		demo.button("btnBuscar").click();
+		demo.textBox("txtNombreContribuyente").requireText("DNI No Válido");
+		demo.list("ListaMatriculas").requireItemCount(0);
+		demo.textBox("txtTotalContribuyente").requireText("0");
 		
 		
 		
@@ -79,4 +75,5 @@ public class Test {
 		
 		
 	}
+
 }

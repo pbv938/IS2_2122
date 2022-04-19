@@ -35,7 +35,7 @@ public class Turismo
 	@Override
     public double precioImpuesto() {
 		double precio = 0;
-    	if(potencia < 8 ) {
+    	if(potencia > 0 && potencia < 8 ) {
     		precio = 25.24;
     	}
     	else if(potencia >= 8 && potencia <= 11.99) {

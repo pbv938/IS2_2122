@@ -3,6 +3,7 @@ package es.unican.is2;
 
 import static org.junit.Assert.*;
 
+
 import java.time.LocalDate;
 
 import es.unican.is2.ImpuestoCirculacion.Furgoneta;
